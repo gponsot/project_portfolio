@@ -281,7 +281,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="relative h-72 overflow-hidden rounded-2xl border border-sky-100 bg-zinc-100 dark:border-sky-900/40 dark:bg-zinc-800">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
               <Image
                 src="/images/profile.png"
                 alt="Gabriel Ponsot profile portrait"
