@@ -446,7 +446,7 @@ export default function Home() {
             title="Let&apos;s Connect"
             label="Reach Out"
             className="bg-gradient-to-br from-white to-zinc-50/90 dark:from-zinc-900 dark:to-zinc-900/70"
-            description="Open to analytics, ML, and product-focused opportunities."
+            description="Open to opportunities incorporating machine learning, AI, and data analytics to produce actionable business insights."
           >
             <div className="space-y-2 text-sm">
               <p className="text-zinc-700 dark:text-zinc-200">
