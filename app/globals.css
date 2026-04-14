@@ -23,3 +23,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), Inter, "Segoe UI", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
