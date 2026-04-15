@@ -34,7 +34,6 @@ const completedProjects = [
     title: "NCAA Crossroads Analytics Challenge",
     detail: "Predicting tournament seeds using tabular statistics.",
     repoLink: "https://github.com/gponsot/NCAA_Challenge",
-    demoLink: "https://github.com/gponsot/NCAA_Challenge",
     image: "/images/ncaa.png",
     highlights: [
       "Engineered a tabular feature set across team efficiency and matchup metrics.",
