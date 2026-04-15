@@ -33,7 +33,8 @@ const completedProjects = [
   {
     title: "NCAA Crossroads Analytics Challenge",
     detail: "Predicting tournament seeds using tabular statistics.",
-    link: "https://github.com/gponsot/NCAA_Challenge",
+    repoLink: "https://github.com/gponsot/NCAA_Challenge",
+    demoLink: "https://github.com/gponsot/NCAA_Challenge",
     image: "/images/ncaa.png",
     highlights: [
       "Engineered a tabular feature set across team efficiency and matchup metrics.",
@@ -50,51 +51,57 @@ const completedProjects = [
     ],
   },
   {
-    title: "Deep Learning Research",
-    detail: "Advanced neural network implementations.",
-    link: "https://github.com/gponsot/deep_learning_project",
+    title: "Stock Prediction with Deep Learning",
+    detail:
+      "Built sequence models to forecast stock movement from historical OHLCV signals.",
+    repoLink: "https://github.com/gponsot/deep_learning_project",
+    deliverableLink: "/pdfs/mgmt-590-final-project.pdf",
     image: "/images/deep-learning.png",
     highlights: [
-      "Implemented and compared neural architectures for performance and stability.",
-      "Tested training strategies, loss behavior, and hyperparameter sensitivity.",
-      "Documented experimentation workflow for reproducible deep learning research.",
+      "Engineered lag-based and rolling-window features from OHLCV data before converting datasets into model-ready tensors.",
+      "Compared dense, LSTM, and GRU architectures with dropout and early stopping to control overfitting under non-stationary market conditions.",
+      "Evaluated regression and directional metrics (RMSE, MAE, and hit-rate) to assess both price-level error and trading signal quality.",
     ],
     skills: [
       "Python",
+      "PyTorch",
       "Deep Learning",
-      "Neural Networks",
+      "LSTM/GRU",
       "Experiment Tracking",
       "Model Tuning",
     ],
   },
   {
-    title: "Data Mining Project",
-    detail: "Applied data mining workflows and model evaluation.",
-    link: "https://github.com/gponsot/datamining_project",
+    title: "Bankruptcy Prediction",
+    detail:
+      "Developed a classification pipeline to predict corporate bankruptcy risk from financial indicators.",
+    repoLink: "https://github.com/gponsot/datamining_project",
+    deliverableLink: "/pdfs/mgmt-571-final-project.pdf",
     image: "/images/bank.png",
     highlights: [
-      "Built an end-to-end mining pipeline from cleaning through model comparison.",
-      "Explored segmentation and predictive modeling to surface actionable patterns.",
-      "Summarized outputs with stakeholder-friendly visuals and narrative insights.",
+      "Built a full preprocessing pipeline with missing-value handling, outlier treatment, and scaling designed for imbalanced credit-risk style data.",
+      "Benchmarked logistic regression, tree ensembles, and boosting methods with cross-validation and ROC-AUC/F1-based model selection.",
+      "Used confusion-matrix analysis and threshold tuning to balance false negatives and false positives for risk-sensitive decisions.",
     ],
     skills: [
       "Python",
       "Data Mining",
       "Data Cleaning",
       "Classification",
-      "Clustering",
+      "XGBoost",
       "Visualization",
     ],
   },
   {
-    title: "FinLit",
-    detail: "AI budgeting and retirement assistant.",
-    link: "https://github.com/vaishnavshubh/chatbot",
+    title: "FinLit: A Financial Literacy ChatBot",
+    detail:
+      "RAG-enabled chatbot for budgeting, retirement planning, and foundational personal finance guidance.",
+    repoLink: "https://github.com/vaishnavshubh/chatbot",
     image: "/images/finlit.png",
     highlights: [
-      "Developed a conversational assistant for budgeting and long-term planning.",
-      "Structured prompts and retrieval logic to improve recommendation quality.",
-      "Designed user flows for practical financial education use cases.",
+      "Implemented retrieval-augmented generation with chunking + embedding search to ground responses in curated finance references.",
+      "Designed prompt templates, guardrails, and response schemas to keep outputs explainable and user-appropriate.",
+      "Built a Streamlit interface with stateful conversation memory and scenario-based budgeting workflows.",
     ],
     skills: [
       "Python",
@@ -106,16 +113,18 @@ const completedProjects = [
     ],
   },
   {
-    title: "Shiny App R Project",
-    detail: "Interactive data visualization dashboard.",
-    link: "https://github.com/gponsot/shiny_app_r_project",
-    image: "/images/politics.png",
+    title: "Political Bias Prediction App",
+    detail:
+      "Interactive NLP application that predicts political bias from article text and source metadata.",
+    repoLink: "https://github.com/gponsot/shiny_app_r_project",
+    deliverableLink: "/pdfs/mgmt-389-poster.pdf",
+    image: "/images/news.png",
     highlights: [
-      "Built an interactive dashboard with dynamic filters and visual summaries.",
-      "Focused on making exploratory analysis fast and intuitive for users.",
-      "Connected data storytelling with decision-oriented KPI tracking.",
+      "Preprocessed text corpora with tokenization, stop-word removal, and TF-IDF vectorization for downstream modeling.",
+      "Trained and compared multiple classifiers to estimate ideological leaning from textual and source-level features.",
+      "Deployed an R Shiny app with interactive inputs, probability outputs, and model-explainer visuals for transparent predictions.",
     ],
-    skills: ["R", "Shiny", "Data Visualization", "Dashboard Design", "Analytics"],
+    skills: ["R", "Shiny", "NLP", "TF-IDF", "Classification", "Model Explainability"],
   },
 ];
 
@@ -240,14 +249,13 @@ export default function Home() {
       <section className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-5">
         <BentoCard
           title="About Me + Current Focus"
-          label="Introduction"
           className="bg-gradient-to-br from-sky-50/70 via-white to-zinc-50/90 dark:from-sky-950/25 dark:to-zinc-900/70"
-          description="Master's candidate at Purdue University focused on analytics-driven decision making."
+          description="Master's student at Purdue University focused on analytics-driven decision making."
         >
           <div className="grid gap-4 sm:grid-cols-[1.2fr_1fr]">
             <div>
               <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-200">
-                I am a Master&apos;s candidate in Business Analytics and Information
+                I am a Master&apos;s student in Business Analytics and Information
                 Management at Purdue University, where I translate complex data
                 into actionable business strategy. With a foundational
                 background in Economics and Data Analytics, I bridge the gap
@@ -339,14 +347,38 @@ export default function Home() {
                   Project image placeholder
                 </div>
               )}
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
-              >
-                View repository
-              </a>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                {project.repoLink ? (
+                  <a
+                    href={project.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
+                  >
+                    Code
+                  </a>
+                ) : null}
+                {project.deliverableLink ? (
+                  <a
+                    href={project.deliverableLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
+                  >
+                    Deliverables
+                  </a>
+                ) : null}
+                {project.demoLink ? (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
+                  >
+                    Live Demo
+                  </a>
+                ) : null}
+              </div>
               <details className="mt-3 rounded-xl border border-sky-100 bg-white/70 p-3 dark:border-sky-900/40 dark:bg-zinc-900/50">
                 <summary className="cursor-pointer text-xs font-semibold uppercase tracking-[0.12em] text-sky-700 dark:text-sky-300">
                   Project details
