@@ -367,16 +367,6 @@ export default function Home() {
                     Deliverables
                   </a>
                 ) : null}
-                {project.demoLink ? (
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
-                  >
-                    Live Demo
-                  </a>
-                ) : null}
               </div>
               <details className="mt-3 rounded-xl border border-sky-100 bg-white/70 p-3 dark:border-sky-900/40 dark:bg-zinc-900/50">
                 <summary className="cursor-pointer text-xs font-semibold uppercase tracking-[0.12em] text-sky-700 dark:text-sky-300">
