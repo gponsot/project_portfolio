@@ -96,6 +96,7 @@ const completedProjects = [
     detail:
       "RAG-enabled chatbot for budgeting, retirement planning, and foundational personal finance guidance.",
     repoLink: "https://github.com/vaishnavshubh/chatbot",
+    demoLink: "https://finlitchatbot.streamlit.app/",
     image: "/images/finlit.png",
     highlights: [
       "Implemented retrieval-augmented generation with chunking + embedding search to ground responses in curated finance references.",
@@ -365,6 +366,16 @@ export default function Home() {
                     className="inline-flex items-center text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
                   >
                     Deliverables
+                  </a>
+                ) : null}
+                {"demoLink" in project && project.demoLink ? (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sky-700 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
+                  >
+                    Live Demo
                   </a>
                 ) : null}
               </div>
